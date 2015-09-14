@@ -1,0 +1,18 @@
+heroku create
+
+heroku apps:rename skclabot
+git remote rm heroku
+heroku git:remote -a skclabot
+
+heroku config:set GITHUB_TOKEN=9396a789d6795fdc6a335005d7fd93c747e4a217
+
+git push heroku master
+heroku ps:scale web=1
+heroku open
+web: node index.js
+heroku ps
+
+npm install
+foreman start
+
+git push heroku master
